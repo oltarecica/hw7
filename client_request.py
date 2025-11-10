@@ -1,3 +1,5 @@
+#This sends a sample datapoint to the FastAPI model endpoint and prints the prediction
+
 import requests
 import json
 
