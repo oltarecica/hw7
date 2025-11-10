@@ -18,14 +18,14 @@ class Features(BaseModel):
 def root():
     return {"message": "API is running"}
 
-#existing endpoint
+#The existing endpoint
 @app.post("/predict")
 def predict(data: Features):
     X_new = np.array([[data.sepal_length, data.sepal_width, data.petal_length, data.petal_width]])
     prediction = model.predict(X_new)[0]
     return {"prediction": int(prediction)}
 
-#new endpoint
+#The new endpoint
 @app.post("/predict_file")
 async def predict_file(file: UploadFile = File(...)):
     contents = await file.read()
